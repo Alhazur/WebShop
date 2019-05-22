@@ -24,7 +24,7 @@ namespace WebShop
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<WebShopDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("WebShopContext")));//1 DB
+                options.UseSqlServer(Configuration.GetConnectionString("WebContext")));//1 DB
 
             //Identity
             //services.AddIdentity<WebShopDbContext, IdentityRole>().AddEntityFrameworkStores<WebShopDbContext>();
@@ -45,10 +45,10 @@ namespace WebShop
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
-            services.AddSpaStaticFiles(configuration =>
-            {
-                configuration.RootPath = "ClientApp/build";
-            });
+            //services.AddSpaStaticFiles(configuration =>
+            //{
+            //    configuration.RootPath = "ClientApp/build";
+            //});
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -65,26 +65,32 @@ namespace WebShop
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            app.UseSpaStaticFiles();
+            //app.UseSpaStaticFiles();
 
             app.UseCors();//3? Cors success
 
+            //app.UseMvcWithDefaultRoute();//WhitOut React
+
+            //Whit React
             app.UseMvc(routes =>
             {
+                //routes.MapRoute("FruktSpecial", "Frukt",
+                //    defaults: new { controller = "Produkt", action = "Index" });
+
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller}/{action=Index}/{id?}");
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
 
-            app.UseSpa(spa =>
-            {
-                spa.Options.SourcePath = "ClientApp";
+            //app.UseSpa(spa =>
+            //{
+            //    spa.Options.SourcePath = "ClientApp";
 
-                if (env.IsDevelopment())
-                {
-                    spa.UseReactDevelopmentServer(npmScript: "start");
-                }
-            });
+            //    if (env.IsDevelopment())
+            //    {
+            //        spa.UseReactDevelopmentServer(npmScript: "start");
+            //    }
+            //});
         }
     }
 }
