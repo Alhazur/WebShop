@@ -62,8 +62,8 @@ namespace WebShop.Controllers
             return View("_Edit", produkt);
         }
 
-        [HttpPost]
-        public IActionResult Edit(Produkt produkt)
+        [HttpPost, ActionName("Edit")]
+        public IActionResult EditComplete(Produkt produkt)
         {
             if (ModelState.IsValid)
             {

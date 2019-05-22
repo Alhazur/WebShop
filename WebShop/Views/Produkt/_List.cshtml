@@ -1,0 +1,10 @@
+﻿@model ProduktVM
+
+<div class="row">
+    <ul id="AllProdukts">
+        @foreach (var item in Model.produkts)
+        {
+            @await Html.PartialAsync("_Produkt", item)
+        }
+    </ul>
+</div>

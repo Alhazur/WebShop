@@ -1,16 +1,4 @@
-﻿function LinkCreate(urlPath) {
-    console.log('Created produkt: ' + urlPath);
-    $.post(urlPath,
-        {
-            name: $('#createName').val(),
-            price: $('#createPrice').val()
-        },
-        function (res) {
-            $('#AllProdukts').append(res);
-        });
-}
-
-//Get
+﻿//Get
 function LinkUpdate(urlPath, targetUpdate) {
     console.log('Url: ' + urlPath);
     console.log('Id: ' + targetUpdate);
@@ -32,5 +20,17 @@ function LinkEdit(urlPath, targetUpdate, produktId) {
         },
         function (res) {
             $('#' + targetUpdate).replaceWith(res);
+        });
+}
+
+function LinkCreate(urlPath) {
+    console.log('Created produkt: ' + urlPath);
+    $.post(urlPath,
+        {
+            name: $('#createName').val(),
+            price: $('#createPrice').val()
+        },
+        function (res) {
+            $('#AllProdukts').append(res);
         });
 }

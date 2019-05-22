@@ -5,22 +5,19 @@
 
 <h1>Produkts</h1>
 
-<div>
-    <div>
-        <div><input type="text" name="name" id="createName" placeholder="Produkt name" /></div>
-        <div><input type="text" name="price" id="createPrice" placeholder="Produkt price" /></div>
-        <div><button class="btn btn-success" onclick="LinkCreate('@Url.Action("CreatePerson", "Person")')">Create Produkt</button></div>
+<div class="row">
+    <div class="col-12">
+        <div class="row">
+            <div class="col">Name:<input type="text" name="name" id="createName" placeholder="Produkt name" /></div>
+            <div class="col">Price:<input type="text" name="price" id="createPrice" placeholder="Produkt price" /></div>
+            <div class="col"><button class="btn btn-success" onclick="LinkCreate('@Url.Action("CreateProdukt", "Produkt")')">Create Produkt</button></div>
+        </div>
     </div>
 </div>
+
 <div class="row">
     <div class="col"><b>Name</b></div>
     <div class="col"><b>Price</b></div>
-</div>
-<div>
-    <ul id="AllProdukts">
-        @foreach (var item in Model.produkts)
-        {
-            <li>@await Html.PartialAsync("_Produkt", item)</li>
-        }
-    </ul>
+
+    @await Html.PartialAsync("_List", Model)
 </div>
