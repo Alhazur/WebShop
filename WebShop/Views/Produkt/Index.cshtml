@@ -4,20 +4,29 @@
 }
 
 <h1>Produkts</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">
+                <div class="col">Name: <input type="text" name="name" id="createName" placeholder="Produkt name" /></div>
+            </th>
+            <th scope="col">
+                <div class="col">Price: <input type="text" name="price" id="createPrice" placeholder="Produkt price" /></div>
+            </th>
+            <th scope="col">
+                <div class="col"><button class="btn btn-success" onclick="LinkCreate('@Url.Action("CreateProdukt", "Produkt")')">Create Produkt</button></div>
+            </th>
+        </tr>
+    </thead>
+</table>
 
-<div class="row">
-    <div class="col-12">
-        <div class="row">
-            <div class="col">Name:<input type="text" name="name" id="createName" placeholder="Produkt name" /></div>
-            <div class="col">Price:<input type="text" name="price" id="createPrice" placeholder="Produkt price" /></div>
-            <div class="col"><button class="btn btn-success" onclick="LinkCreate('@Url.Action("CreateProdukt", "Produkt")')">Create Produkt</button></div>
-        </div>
-    </div>
-</div>
+<table class="table">
 
-<div class="row">
-    <div class="col"><b>Name</b></div>
-    <div class="col"><b>Price</b></div>
-
-    @await Html.PartialAsync("_List", Model)
-</div>
+    <tbody>
+        <tr>
+            <td>
+                @await Html.PartialAsync("_List", Model)
+            </td>
+        </tr>
+    </tbody>
+</table>

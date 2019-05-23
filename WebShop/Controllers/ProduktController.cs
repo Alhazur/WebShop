@@ -59,7 +59,7 @@ namespace WebShop.Controllers
             {
                 return NotFound();
             }
-            return View("_Edit", produkt);
+            return PartialView("_Edit", produkt);
         }
 
         [HttpPost, ActionName("Edit")]

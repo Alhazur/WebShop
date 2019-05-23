@@ -1,10 +1,13 @@
 ﻿@model ProduktVM
 
-<div class="row">
-    <ul id="AllProdukts">
+
+<div id="AllProdukts">
+    <div>
         @foreach (var item in Model.produkts)
         {
-            @await Html.PartialAsync("_Produkt", item)
+            <div>
+                @await Html.PartialAsync("_Produkt", item)
+            </div>
         }
-    </ul>
+    </div>
 </div>

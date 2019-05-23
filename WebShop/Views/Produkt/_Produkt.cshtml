@@ -1,17 +1,15 @@
 ﻿@model Produkt
 
-<div id="@("produkt" + Model.Id)" class="col-12 listrow">
-    <div class="row">
-        <div class="col">@Model.Name</div>
-        <div class="col">@Model.Price</div>
-        <div class="col">
-            <div class="row">
-                <div class="col">                              @* get                  get *@
-                    <button class="btn btn-warning" onclick="LinkUpdate('@Url.Action(" Edit", "Produkt" , new {id = Model.Id })' , '@("produkt" + Model.Id)' )">
-                        Edit
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+<table id="@("produkt" + Model.Id)" class="table">
+    <tbody>
+        <tr>
+            <th>@Model.Name</th>
+            <td>@Model.Price kr</td>
+            <td>
+                <button class="btn btn-primary" onclick="LinkUpdate('@Url.Action("Edit", "Produkt" , new {id = Model.Id })' , '@("produkt" + Model.Id)' )">
+                    Edit
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
