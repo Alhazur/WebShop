@@ -3,20 +3,29 @@ import Produkt from "./Produkt";
 
 class ProduktList extends Component {
   render() {
+    const {
+      onReset,
+      onDelete,
+      onIncrement,
+      onIncrementMinus,
+      produkts
+    } = this.props;
     return (
       <div>
-        <button
-          onClick={this.props.onReset}
-          className="btn btn-primary btn-sm m-2"
-        >
+        <button onClick={onReset} className="btn btn-primary btn-sm m-2">
           Reset
         </button>
-        {this.state.produkts.map(pro => (
-          <Produkt
-            key={pro.id}
-            onDelete={this.props.onDelete}
-            onIncrement={this.props.onIncrement}
-          />
+        {produkts.map((pro, index) => (
+          <div key={index}>
+            <div>{pro.name}</div>
+            <div>{pro.price} kr st</div>
+            <Produkt
+              onDelete={onDelete}
+              onIncrement={onIncrement}
+              onIncrementMinus={onIncrementMinus}
+              pro={pro}
+            />
+          </div>
         ))}
       </div>
     );
