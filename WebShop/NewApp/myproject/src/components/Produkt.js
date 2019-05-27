@@ -14,7 +14,7 @@ class Produkt extends Component {
           {this.formatCount()}
         </span>
         <button
-          onClick={() => this.props.onIncrementMinus(this.props.pro)}
+          onClick={() => this.props.onDecrement(this.props.pro)}
           className="btn btn-success btn-sm"
         >
           -

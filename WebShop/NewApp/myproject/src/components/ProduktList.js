@@ -7,7 +7,7 @@ class ProduktList extends Component {
       onReset,
       onDelete,
       onIncrement,
-      onIncrementMinus,
+      onDecrement,
       produkts
     } = this.props;
     return (
@@ -22,7 +22,7 @@ class ProduktList extends Component {
             <Produkt
               onDelete={onDelete}
               onIncrement={onIncrement}
-              onIncrementMinus={onIncrementMinus}
+              onDecrement={onDecrement}
               pro={pro}
             />
           </div>
